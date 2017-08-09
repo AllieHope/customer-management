@@ -1,0 +1,25 @@
+<div class="container">
+
+  <h1>Customer Overview</h1>
+  <button class="btn">Add new customer</button>
+
+  <table class="table table-striped">
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Age</th>
+      <th>Gender</th>
+      <th>Options</th>
+    </tr>
+
+    <tr *ngFor="let customer of customers">
+      <td>{{customer.firstName}}</td>
+      <td>{{customer.lastName}}</td>
+      <td>44</td>
+      <td>{{customer.gender}}</td>
+      <td><button class="btn">Edit</button></td>
+    </tr>
+
+  </table>
+
+</div>
