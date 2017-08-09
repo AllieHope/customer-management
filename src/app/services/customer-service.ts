@@ -4,8 +4,9 @@ export interface Customer {
   id: string;
   firstName: string;
   lastName: string;
-  birthday: string;
+  birthday: Date;
   gender: string;
+  age?: number;
 }
 
 @Injectable()
@@ -16,31 +17,38 @@ export class CustomerService {
     this.customers = [
       {
         id: '1',
-        firstName: 'John',
-        lastName: 'Doe',
-        birthday: '1991-10-12',
+        firstName: 'Peter',
+        lastName: 'Smith',
+        birthday: new Date('1996-10-12'),
         gender: 'male'
       },
       {
         id: '2',
-        firstName: 'Robert',
-        lastName: 'Giel',
-        birthday: '1991-10-12',
-        gender: 'male'
+        firstName: 'Anna',
+        lastName: 'Hopp',
+        birthday: new Date('1987-05-03'),
+        gender: 'female'
       },
       {
         id: '3',
-        firstName: 'Allie',
-        lastName: 'Hope',
-        birthday: '1991-10-12',
-        gender: 'female'
+        firstName: 'Christian',
+        lastName: 'Cox',
+        birthday: new Date('1991-02-21'),
+        gender: 'male'
       },
       {
         id: '4',
-        firstName: 'Holly',
-        lastName: 'Berry',
-        birthday: '1991-10-12',
+        firstName: 'Roxy',
+        lastName: 'Fox',
+        birthday: new Date('1979-06-30'),
         gender: 'female'
+      },
+      {
+        id: '5',
+        firstName: 'Eric',
+        lastName: 'Adam',
+        birthday: new Date('1969-11-21'),
+        gender: 'male'
       }
     ]
   }
