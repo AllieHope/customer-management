@@ -1,0 +1,32 @@
+.heading-container {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.btn {
+  padding: 7px 20px;
+}
+
+.btn-blue {
+  color: white;
+  background-color: #42aef6;
+  border-color: #42aef6;
+  transition: .3s all;
+
+  &:hover {
+    background-color:#32B1E3;
+    border-color: #32B1E3;
+  }
+}
+
+.btn-green {
+  color: white;
+  background-color: #5cb85c;
+  border-color: #5cb85c;
+  transition: .3s all;
+
+  &:hover {
+    background-color:#2ecc71;
+    border-color: #2ecc71;
+  }
+}

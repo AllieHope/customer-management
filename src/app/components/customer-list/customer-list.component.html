@@ -1,7 +1,9 @@
 <div class="container">
 
-  <h1>Customer Overview</h1>
-  <button class="btn">Add new customer</button>
+  <div class="heading-container">
+    <h1>Customer Overview</h1>
+    <button class="btn btn-blue">Add new customer</button>
+  </div>
 
   <table class="table table-striped">
     <tr>
@@ -17,7 +19,11 @@
       <td>{{customer.lastName}}</td>
       <td>{{customer.age}}</td>
       <td>{{customer.gender}}</td>
-      <td><button class="btn">Edit</button></td>
+      <td>
+        <button class="btn btn-blue">Edit</button>
+        <button class="btn btn-blue">Delete</button>
+        <button class="btn btn-green">Navi</button>
+      </td>
     </tr>
 
   </table>
