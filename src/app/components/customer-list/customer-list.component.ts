@@ -27,10 +27,43 @@ export class CustomerListComponent implements OnInit {
     return Math.abs(ageDate.getUTCFullYear() - 1970);
   }
 
+  compareFirst(a: Customer, b: Customer) {
+    if (a.firstName < b.firstName) {
+      return -1;
+    }
+    if (a.firstName > b.firstName) {
+      return 1;
+    }
+    return 0;
+  }
+
+  compareLast(a: Customer, b: Customer) {
+    if (a.lastName < b.lastName) {
+      return -1;
+    }
+    if (a.lastName > b.lastName) {
+      return 1;
+    }
+    return 0;
+  }
+
+  onSortFirstName() {
+    this.customers.sort(this.compareFirst);
+  }
+
+  onSortLastName() {
+    this.customers.sort(this.compareLast);
+  }
+
   onDeleteCustomer(id: string) {
     this.customers = this.customers.filter(c => {
       return c.id !== id;
     });
+  }
+
+  onEditCustomer(customer: Customer) {
+    const modal = this.detailModal.nativeElement.querySelector('#customer-detail-modal');
+    console.log(modal);
   }
 
 }
