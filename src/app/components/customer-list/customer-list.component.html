@@ -2,7 +2,7 @@
 
   <div class="heading-container">
     <h1>Customer Overview</h1>
-    <button class="btn btn-blue">Add new customer</button>
+    <a class="btn btn-blue" data-toggle="modal" data-target="#customer-detail">Add new customer</a>
   </div>
 
   <table class="table table-striped">
@@ -20,8 +20,8 @@
       <td>{{customer.age}}</td>
       <td>{{customer.gender}}</td>
       <td>
-        <button class="btn btn-blue">Edit</button>
-        <button class="btn btn-blue" (click)="deleteCustomer(customer.id)">Delete</button>
+        <button class="btn btn-blue"  data-toggle="modal" data-target="#customer-detail">Edit</button>
+        <button class="btn btn-blue" (click)="onDeleteCustomer(customer.id)">Delete</button>
         <button class="btn btn-green">Navi</button>
       </td>
     </tr>
@@ -29,3 +29,5 @@
   </table>
 
 </div>
+
+<customer-detail></customer-detail>

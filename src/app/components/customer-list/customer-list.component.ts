@@ -27,7 +27,7 @@ export class CustomerListComponent implements OnInit {
     return Math.abs(ageDate.getUTCFullYear() - 1970);
   }
 
-  deleteCustomer(id: string) {
+  onDeleteCustomer(id: string) {
     this.customers = this.customers.filter(c => {
       return c.id !== id;
     });
