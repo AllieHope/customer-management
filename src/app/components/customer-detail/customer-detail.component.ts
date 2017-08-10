@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Customer, CustomerService} from "../../services/customer-service";
-import 'rxjs/add/operator/switchMap';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'customer-detail',
@@ -8,16 +7,21 @@ import 'rxjs/add/operator/switchMap';
   styleUrls: ['./customer-detail.component.scss']
 })
 export class CustomerDetailComponent implements OnInit {
-  customer: Customer;
-  loading = true;
 
-  constructor(private service: CustomerService) { }
+  customerForm = new FormGroup ({
+    id: new FormControl(),
+    firstName: new FormControl(),
+    lastName: new FormControl(),
+    birthday: new FormControl(),
+    gender: new FormControl(),
+    lastContact: new FormControl(),
+    lifetimeValue: new FormControl()
+  });
+
+  constructor() { }
 
   ngOnInit() {
-  }
 
-  loadCustomerDetails(id: string) {
-    this.loading = false;
   }
 
 }
