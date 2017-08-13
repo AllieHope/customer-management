@@ -20,10 +20,11 @@ export class CustomerListComponent implements OnInit {
       c.age = this.calculateAge(c.birthday);
     });
     this.customers.sort(this.compareLastAsc);
+    this.customerService.saveCustomers(this.customers);
   }
 
   calculateAge(bday: Date): number {
-    const diff = Date.now() - bday.getTime();
+    const diff = Date.now() - new Date(bday).getTime();
     const ageDate = new Date(diff);
     return Math.abs(ageDate.getUTCFullYear() - 1970);
   }
@@ -92,11 +93,11 @@ export class CustomerListComponent implements OnInit {
     this.customers = this.customers.filter(c => {
       return c.id !== id;
     });
+    this.customerService.saveCustomers(this.customers);
   }
 
   onEditCustomer(customer: Customer) {
-    const modal = this.detailModal.nativeElement.querySelector('#customer-detail-modal');
-    console.log(modal);
+    console.log(JSON.stringify(this.detailModal));
   }
 
 }

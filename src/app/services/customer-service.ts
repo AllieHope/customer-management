@@ -11,10 +11,10 @@ export interface Customer {
 
 @Injectable()
 export class CustomerService {
-  customers: Customer[];
+  initialCustomers: Customer[];
 
   constructor() {
-    this.customers = [
+    this.initialCustomers = [
       {
         id: '1',
         firstName: 'Peter',
@@ -54,6 +54,11 @@ export class CustomerService {
   }
 
   getCustomers(): Customer[] {
-    return this.customers;
+    const storedCustomers = localStorage.getItem('customers');
+    return storedCustomers ? JSON.parse(storedCustomers) : this.initialCustomers;
+  }
+
+  saveCustomers(customers: Customer[]): void {
+    localStorage.setItem('customers', JSON.stringify(customers));
   }
 }
