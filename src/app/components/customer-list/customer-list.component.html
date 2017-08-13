@@ -2,13 +2,13 @@
 
   <div class="heading-container">
     <h1>Customer Overview</h1>
-    <a class="btn btn-blue" data-toggle="modal" data-target="#customer-detail">Add new customer</a>
+    <a class="btn btn-blue" data-toggle="modal" data-target="#customer-detail-modal">Add new customer</a>
   </div>
 
   <table class="table table-striped">
     <tr>
-      <th>First Name</th>
-      <th>Last Name</th>
+      <th class="firstName" (click)="onSortName($event)">First Name</th>
+      <th class="asc lastName" (click)="onSortName($event)">Last Name</th>
       <th>Age</th>
       <th>Gender</th>
       <th>Options</th>
@@ -20,7 +20,7 @@
       <td>{{customer.age}}</td>
       <td>{{customer.gender}}</td>
       <td>
-        <button class="btn btn-blue"  data-toggle="modal" data-target="#customer-detail">Edit</button>
+        <button class="btn btn-blue"  data-toggle="modal" data-target="#customer-detail-modal" (click)="onEditCustomer(customer)">Edit</button>
         <button class="btn btn-blue" (click)="onDeleteCustomer(customer.id)">Delete</button>
         <button class="btn btn-green">Navi</button>
       </td>

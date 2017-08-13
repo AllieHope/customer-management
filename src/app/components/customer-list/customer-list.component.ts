@@ -19,6 +19,7 @@ export class CustomerListComponent implements OnInit {
     this.customers.map(c => {
       c.age = this.calculateAge(c.birthday);
     });
+    this.customers.sort(this.compareLastAsc);
   }
 
   calculateAge(bday: Date): number {
@@ -27,7 +28,27 @@ export class CustomerListComponent implements OnInit {
     return Math.abs(ageDate.getUTCFullYear() - 1970);
   }
 
-  compareFirst(a: Customer, b: Customer) {
+  onSortName(e: any) {
+  if (e.target.classList.contains('asc')) {
+    e.target.classList.remove('asc');
+    e.target.classList.add('desc');
+    if (e.target.classList.contains('firstName')) {
+      this.customers.sort(this.compareFirstDesc);
+    } else {
+      this.customers.sort(this.compareLastDesc);
+    }
+  } else {
+    e.target.classList.remove('desc');
+    e.target.classList.add('asc');
+    if (e.target.classList.contains('firstName')) {
+      this.customers.sort(this.compareFirstAsc);
+    } else {
+      this.customers.sort(this.compareLastAsc);
+    }
+  }
+}
+
+  compareFirstAsc(a: Customer, b: Customer) {
     if (a.firstName < b.firstName) {
       return -1;
     }
@@ -37,7 +58,17 @@ export class CustomerListComponent implements OnInit {
     return 0;
   }
 
-  compareLast(a: Customer, b: Customer) {
+  compareFirstDesc(a: Customer, b: Customer) {
+    if (a.firstName > b.firstName) {
+      return -1;
+    }
+    if (a.firstName < b.firstName) {
+      return 1;
+    }
+    return 0;
+  }
+
+  compareLastAsc(a: Customer, b: Customer) {
     if (a.lastName < b.lastName) {
       return -1;
     }
@@ -47,12 +78,14 @@ export class CustomerListComponent implements OnInit {
     return 0;
   }
 
-  onSortFirstName() {
-    this.customers.sort(this.compareFirst);
-  }
-
-  onSortLastName() {
-    this.customers.sort(this.compareLast);
+  compareLastDesc(a: Customer, b: Customer) {
+    if (a.lastName > b.lastName) {
+      return -1;
+    }
+    if (a.lastName < b.lastName) {
+      return 1;
+    }
+    return 0;
   }
 
   onDeleteCustomer(id: string) {
