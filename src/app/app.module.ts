@@ -7,13 +7,15 @@ import {CustomerService} from './services/customer-service';
 import { CustomerDetailComponent } from './components/customer-detail/customer-detail.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { CustomerAddComponent } from './components/customer-add/customer-add.component';
+import { NavigationDetailComponent } from './components/navigation-detail/navigation-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CustomerListComponent,
     CustomerDetailComponent,
-    CustomerAddComponent
+    CustomerAddComponent,
+    NavigationDetailComponent
   ],
   imports: [
     BrowserModule,
