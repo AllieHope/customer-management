@@ -54,7 +54,6 @@ export class CustomerService {
         gender: 'male'
       }
     ];
-    this.customerCount = this.initialCustomers.length;
   }
 
   getCustomers(): Customer[] {
@@ -67,11 +66,14 @@ export class CustomerService {
   }
 
   incrementCounter(): void {
-    this.customerCount++;
+    let counter = this.getCounter();
+    counter++;
+    localStorage.setItem('counter', counter.toString());
   }
 
   getCounter(): number {
-    return this.customerCount;
+    const storedCounter = localStorage.getItem('counter');
+    return storedCounter ? Number(storedCounter) : this.initialCustomers.length;
   }
 
   addCustomer(customer: Customer) {

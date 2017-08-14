@@ -25,10 +25,10 @@ export class CustomerAddComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.customerService.incrementCounter();
   }
 
   onAddCustomer(customer: Customer) {
+    this.customerService.incrementCounter();
     this.customerService.addCustomer(customer);
   }
 
