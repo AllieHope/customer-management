@@ -1,0 +1,50 @@
+<div class="modal fade" id="customer-add-modal" tabindex="-1" role="dialog" aria-labelledby="customerAddModal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Add a customer</h4>
+      </div>
+      <div class="modal-body flex-justify-center">
+        <form class="customer-detail-form" [formGroup]="customerForm" >
+          <div class="form-group flex">
+            <label for="customer-id" class="control-label">Customer id</label>
+            <input type="text" class="form-control" id="customer-id" formControlName="id" readonly>
+          </div>
+          <div class="form-group flex">
+            <label for="first-name" class="control-label">First name</label>
+            <input type="text" class="form-control" id="first-name" formControlName="firstName" required>
+          </div>
+          <div class="form-group flex">
+            <label for="last-name" class="control-label">Last name</label>
+            <input type="text" class="form-control" id="last-name" formControlName="lastName" required>
+          </div>
+          <div class="form-group flex">
+            <label for="birthday" class="control-label">Birthday</label>
+            <input type="text" class="form-control" id="birthday" formControlName="birthday" required>
+          </div>
+          <div class="form-group flex">
+            <label for="gender" class="control-label">Gender</label>
+            <select class="form-control" name="gender" id="gender" formControlName="gender" required>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+            </select>
+          </div>
+          <div class="form-group flex">
+            <label for="last-contact" class="control-label">Last contact</label>
+            <input type="text" class="form-control" id="last-contact" formControlName="lastContact">
+          </div>
+          <div class="form-group flex">
+            <label for="lifetime-value" class="control-label">Lifetime value</label>
+            <input type="text" class="form-control" id="lifetime-value" formControlName="lifetimeValue" >
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="onAddCustomer(customerForm.value)">Save</button>
+      </div>
+    </div>
+  </div>
+</div>
+

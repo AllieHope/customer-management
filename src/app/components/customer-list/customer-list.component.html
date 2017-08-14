@@ -2,7 +2,7 @@
 
   <div class="heading-container">
     <h1>Customer Overview</h1>
-    <a class="btn btn-blue" data-toggle="modal" data-target="#customer-detail-modal">Add new customer</a>
+    <a class="btn btn-blue" data-toggle="modal" data-target="#customer-add-modal" (click)="onAddCustomer()">Add new customer</a>
   </div>
 
   <table class="table table-striped">
@@ -30,4 +30,5 @@
 
 </div>
 
-<customer-detail></customer-detail>
+<customer-add></customer-add>
+<customer-detail [customer]="currentCustomer"></customer-detail>
