@@ -8,8 +8,8 @@ import {Customer, CustomerService} from '../../services/customer-service';
 })
 
 export class CustomerListComponent implements OnInit {
-
   customers: Customer[];
+  currentCustomer: Customer;
 
   constructor(private customerService: CustomerService) {
   }
@@ -18,6 +18,7 @@ export class CustomerListComponent implements OnInit {
     this.customers = this.customerService.getCustomers();
     this.customers.map(c => {
       c.age = this.calculateAge(c.birthday);
+      c.lifetimeValue = (c.lifetimeValue) ? c.lifetimeValue : 0;
     });
     this.customers.sort(this.compareLastAsc);
     this.customerService.saveCustomers(this.customers);
@@ -89,15 +90,27 @@ export class CustomerListComponent implements OnInit {
     return 0;
   }
 
-  onDeleteCustomer(id: string) {
+  onDeleteCustomer(id: number) {
     this.customers = this.customers.filter(c => {
       return c.id !== id;
     });
     this.customerService.saveCustomers(this.customers);
   }
 
-  onEditCustomer(customer: Customer) {
-    console.log(JSON.stringify(this.detailModal));
+  onEditCustomer(customer: Customer): void {
+    this.currentCustomer = customer;
+  }
+
+  onAddCustomer(): void {
+    const id = this.customerService.getCounter();
+    this.currentCustomer = {
+      id: id,
+      firstName: '',
+      lastName: '',
+      birthday: new Date(),
+      gender: '',
+      lifetimeValue: 0
+    }
   }
 
 }
