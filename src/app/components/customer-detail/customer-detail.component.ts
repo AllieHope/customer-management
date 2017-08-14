@@ -9,7 +9,7 @@ import {Customer, CustomerService} from '../../services/customer-service';
 })
 export class CustomerDetailComponent implements OnInit {
 
-  @Input() customer: any;
+  @Input() customer: Customer;
   customerForm: FormGroup;
 
   constructor(private fb: FormBuilder,
