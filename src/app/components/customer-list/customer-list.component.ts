@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Customer, CustomerService} from '../../services/customer-service';
+import {NavigationData, NavigationService} from '../../services/navigation-data-service';
 
 @Component({
   selector: 'customer-list',
@@ -10,8 +11,11 @@ import {Customer, CustomerService} from '../../services/customer-service';
 export class CustomerListComponent implements OnInit {
   customers: Customer[];
   currentCustomer: Customer;
+  customerData: NavigationData[];
 
-  constructor(private customerService: CustomerService) {
+
+  constructor(private customerService: CustomerService,
+              private navigationService: NavigationService) {
   }
 
   ngOnInit() {
@@ -111,6 +115,11 @@ export class CustomerListComponent implements OnInit {
       gender: '',
       lifetimeValue: 0
     }
+  }
+
+  onViewNaviData(customer: Customer): void {
+    this.currentCustomer = customer;
+    this.customerData = this.navigationService.getCustomerNavigationData(customer);
   }
 
 }

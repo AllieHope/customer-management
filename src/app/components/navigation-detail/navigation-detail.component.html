@@ -3,10 +3,21 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 *ngIf="customer.firstName" class="modal-title">{{customer.firstName}}'s Navigation Details</h4>
+        <h4 *ngIf="customer.firstName" class="modal-title">Navigation details for {{customer.firstName}} {{customer.lastName}}</h4>
       </div>
       <div class="modal-body flex-justify-center">
-        details
+        <table class="table table-striped">
+          <tr>
+            <th class="page">Page</th>
+            <th class="asc timestamp">Timestamp</th>
+          </tr>
+
+          <tr *ngFor="let item of customerData">
+            <td>{{item.pages}}</td>
+            <td>{{item.timestamp | date: 'dd/MM/yyyy hh:mm:ss.S'}}</td>
+          </tr>
+
+        </table>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

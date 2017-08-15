@@ -1,5 +1,6 @@
-import {Component, Input, OnInit} from "@angular/core";
-import {Customer} from "../../services/customer-service";
+import {Component, Input, OnInit} from '@angular/core';
+import {NavigationData} from '../../services/navigation-data-service';
+import {Customer} from '../../services/customer-service';
 
 @Component({
   selector: 'navigation-detail',
@@ -8,12 +9,12 @@ import {Customer} from "../../services/customer-service";
 })
 export class NavigationDetailComponent implements OnInit {
 
+  @Input() customerData: NavigationData[];
   @Input() customer: Customer;
 
   constructor() { }
 
   ngOnInit() {
-
   }
 
 }
