@@ -37,6 +37,5 @@ export class CustomerDetailComponent implements OnInit {
         lifetimeValue: [this.customer.lifetimeValue]
       });
     }
-
   }
 }
