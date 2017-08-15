@@ -8,6 +8,7 @@ import { CustomerDetailComponent } from './components/customer-detail/customer-d
 import {ReactiveFormsModule} from '@angular/forms';
 import { CustomerAddComponent } from './components/customer-add/customer-add.component';
 import { NavigationDetailComponent } from './components/navigation-detail/navigation-detail.component';
+import {NavigationService} from "./services/navigation-data-service";
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { NavigationDetailComponent } from './components/navigation-detail/naviga
     BrowserModule,
     ReactiveFormsModule
   ],
-  providers: [CustomerService],
+  providers: [CustomerService, NavigationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
